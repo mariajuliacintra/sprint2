@@ -29,6 +29,13 @@ void setup() {
   randomSeed(analogRead(0));
   Serial.begin(9600);
   delay(1000);
+  Serial.println(R"(
+ ======================
+|  Bem-vindo ao jogo,  |
+|  selecione um        |
+|      personagem.     |
+ ======================
+)");
 }
 
 void loop() {
@@ -125,6 +132,13 @@ void loop() {
       for (byte cont = 0; cont < 20; cont++) {
         Serial.println(" ");
       }
+      Serial.println(R"(
+ ======================
+|  Bem-vindo ao jogo,  |
+|  selecione um        |
+|      personagem.     |
+ ======================
+)");
     }
 
     // Herói venceu
@@ -144,6 +158,13 @@ void loop() {
       for (byte cont = 0; cont < 20; cont++) {
         Serial.println(" ");
       }
+      Serial.println(R"(
+ ======================
+|  Bem-vindo ao jogo,  |
+|  selecione um        |
+|      personagem.     |
+ ======================
+)");
     }
 
     // Empate
@@ -162,6 +183,13 @@ void loop() {
       for (byte cont = 0; cont < 20; cont++) {
         Serial.println(" ");
       }
+      Serial.println(R"(
+ ======================
+|  Bem-vindo ao jogo,  |
+|  selecione um        |
+|      personagem.     |
+ ======================
+)");
     }
   }
 }
