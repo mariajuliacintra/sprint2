@@ -7,6 +7,7 @@
 #define led_vilao 7
 #define Buzzer 8  // Pino do buzzer
 
+
 bool partida_em_andamentoH = false;
 bool partida_em_andamentoV = false;
 bool dado_heroi_lancado = false;
@@ -29,13 +30,13 @@ void setup() {
   randomSeed(analogRead(0));
   Serial.begin(9600);
   delay(1000);
-  Serial.println(R"(
- ======================
-|  Bem-vindo ao jogo,  |
-|  selecione um        |
-|      personagem.     |
- ======================
-)");
+  Serial.println("\
+ ====================== \n\
+|  Bem-vindo ao jogo,  |\n\
+|  selecione um        |\n\
+|      personagem.     |\n\
+ ======================");
+  Serial.println(" ");
 }
 
 void loop() {
@@ -48,6 +49,7 @@ void loop() {
   // Selecionando o Herói
   if (estado_botao_heroi == HIGH && partida_em_andamentoH == false) {  //seleciona o heroi
     Serial.println("Heroi selecionado");
+    Serial.println("-----------------------------------------------------");
     digitalWrite(led_heroi, HIGH);
     delay(1000);
     digitalWrite(led_heroi, LOW);
@@ -57,15 +59,14 @@ void loop() {
 
   // Sorteando os dados do héroi
   if (contH == 1 && digitalRead(botao_dado_heroi) == HIGH && dado_heroi_lancado == false) {  //sorteia o heroi
-    Serial.println("-----------------------------------------------------");
     Serial.print("Lancando os dados do heroi");
-    delay(800);
+    delay(1000);
     Serial.print(".");
-    delay(800);
+    delay(1000);
     Serial.print(".");
-    delay(800);
+    delay(1000);
     Serial.print(".");
-    delay(800);
+    delay(1000);
     Dado_heroi = random(1, 7);
     Serial.println("");
     delay(500);
@@ -81,6 +82,7 @@ void loop() {
   // Selecionando o vilão
   if (estado_botao_vilao == HIGH && partida_em_andamentoV == false) {
     Serial.println("Vilao selecionado");
+    Serial.println("---------------------------------------------------------");
     digitalWrite(led_vilao, HIGH);
     delay(1000);
     digitalWrite(led_vilao, LOW);
@@ -90,15 +92,14 @@ void loop() {
 
   // Sorteando os dados do vilão
   if (contV == 1 && digitalRead(botao_dado_vilao) == HIGH && dado_vilao_lancado == false) {
-    Serial.println("---------------------------------------------------------");
     Serial.print("Lancando os dados do vilao");
-    delay(800);
+    delay(1000);
     Serial.print(".");
-    delay(800);
+    delay(1000);
     Serial.print(".");
-    delay(800);
+    delay(1000);
     Serial.print(".");
-    delay(800);
+    delay(1000);
     Dado_vilao = random(1, 7);
     Serial.println("");
     delay(500);
@@ -121,7 +122,7 @@ void loop() {
       delay(1000);
       Serial.println("Vilao venceu!!!");
       fim_de_jogo();
-      for (byte cont = 0; cont < 20; cont++) {
+      for (byte cont = 0; cont < 10; cont++) {
         digitalWrite(led_vilao, HIGH);
         delay(300);
         digitalWrite(led_vilao, LOW);
@@ -132,13 +133,14 @@ void loop() {
       for (byte cont = 0; cont < 20; cont++) {
         Serial.println(" ");
       }
-      Serial.println(R"(
- ======================
-|  Bem-vindo ao jogo,  |
-|  selecione um        |
-|      personagem.     |
- ======================
-)");
+      delay(1000);
+      Serial.println("\
+ ====================== \n\
+|  Bem-vindo ao jogo,  |\n\
+|  selecione um        |\n\
+|      personagem.     |\n\
+ ======================");
+      Serial.println("");
     }
 
     // Herói venceu
@@ -158,13 +160,14 @@ void loop() {
       for (byte cont = 0; cont < 20; cont++) {
         Serial.println(" ");
       }
-      Serial.println(R"(
- ======================
-|  Bem-vindo ao jogo,  |
-|  selecione um        |
-|      personagem.     |
- ======================
-)");
+      delay(1000);
+      Serial.println("\
+ ====================== \n\
+|  Bem-vindo ao jogo,  |\n\
+|  selecione um        |\n\
+|      personagem.     |\n\
+ ======================");
+ Serial.println(" ");
     }
 
     // Empate
@@ -183,13 +186,14 @@ void loop() {
       for (byte cont = 0; cont < 20; cont++) {
         Serial.println(" ");
       }
-      Serial.println(R"(
- ======================
-|  Bem-vindo ao jogo,  |
-|  selecione um        |
-|      personagem.     |
- ======================
-)");
+      delay(1000);
+      Serial.println("\
+ ====================== \n\
+|  Bem-vindo ao jogo,  |\n\
+|  selecione um        |\n\
+|      personagem.     |\n\
+ ======================");
+      Serial.println("");
     }
   }
 }
@@ -207,7 +211,7 @@ void fim_de_jogo() {
   partida_em_andamentoV = false;
 }
 
-void musica_vilao() {
+void musica_vilao() {  //Star wars:Marcha imperial
 
   delay(1000);
 
