@@ -188,8 +188,7 @@ void loop() {
       }
       delay(1000);
       Serial.println("\
- ====================== \n\
-|  Bem-vindo ao jogo,  |\n\
+ ====================== \n\ 
 |  selecione um        |\n\
 |      personagem.     |\n\
  ======================");
