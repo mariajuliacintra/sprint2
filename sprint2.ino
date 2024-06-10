@@ -167,7 +167,7 @@ void loop() {
 |  selecione um        |\n\
 |      personagem.     |\n\
  ======================");
- Serial.println(" ");
+      Serial.println(" ");
     }
 
     // Empate
